@@ -1,0 +1,132 @@
+---
+import '../styles/global.css';
+
+const projects = [
+  {
+    id: '01',
+    status: 'Main project / in progress',
+    title: 'Almacén de Bolsillo',
+    description: 'A cross-platform mobile system that helps small retailers manage inventory, sales, purchases, suppliers, employees, reports, and permissions.',
+    tags: ['React Native', 'Expo', 'TypeScript'],
+    link: 'https://github.com/marianojhb/almacen-de-bolsillo',
+  },
+  {
+    id: '02',
+    status: 'Business / 2005—present',
+    title: 'BambuGuazu',
+    description: 'A natural and bamboo-products business where commercial operations, process improvement, and software integrations meet.',
+    tags: ['Operations', 'Zoho', 'Automation'],
+    link: 'https://bambuguazu.com/',
+  },
+  {
+    id: '03',
+    status: 'Deployment / 2025',
+    title: 'Club Champagnat',
+    description: 'A customized Moodle platform adapted for a sports organization, with more than 600 registered users and custom reporting.',
+    tags: ['Moodle', 'Reports', 'Integration'],
+    link: 'https://campus.clubchampagnat.com.ar',
+  },
+  {
+    id: '04',
+    status: 'Academic projects',
+    title: 'Systems in motion',
+    description: 'A collection of coursework across .NET, C++, JavaScript, and Flask: appointment management, games, shopping, and chat.',
+    tags: ['C# / .NET', 'C++', 'Flask'],
+    link: 'https://github.com/marianojhb',
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Mariano JHB — personal portfolio and selected work." />
+    <title>Mariano JHB — Machine room</title>
+  </head>
+  <body>
+    <main class="machine-page" id="top">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="wordmark" href="#top">M / JHB</a>
+        <div class="topbar__status"><span class="status-light"></span> system online</div>
+        <a class="topbar__link" href="#contact">Contact <span aria-hidden="true">↘</span></a>
+      </nav>
+
+      <section class="hero scene" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="system-label">Personal portfolio / 2026</p>
+          <h1 id="hero-title">Ideas that<br /><em>move</em> machinery.</h1>
+          <p class="hero__lede">Mobile and full-stack developer from Argentina. I build useful systems where product thinking, operations, and code meet.</p>
+          <a class="scroll-cue" href="#work"><span class="scroll-cue__line"></span> Enter the work</a>
+        </div>
+        <div class="hero__art machine-graphic" aria-label="An animated mechanical core illustration" role="img">
+          <svg viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <filter id="green-glow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+              <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#b7ff45" stroke-opacity=".11" stroke-width="1" /></pattern>
+            </defs>
+            <circle class="orbit orbit--outer" cx="300" cy="300" r="248" />
+            <circle class="orbit orbit--inner" cx="300" cy="300" r="184" />
+            <circle class="graphic-grid" cx="300" cy="300" r="208" fill="url(#grid)" />
+            <g class="gear gear--a" transform="translate(300 300)"><circle r="144" /><circle class="gear__cut" r="92" /><path d="M0-174V-119M0 119V174M174 0H119M-119 0H-174M123-123l-39 39M-84 84l-39 39M123 123l-39-39M-84-84l-39-39" /></g>
+            <g class="gear gear--b" transform="translate(170 176)"><circle r="77" /><circle class="gear__cut" r="48" /><path d="M0-94V-64M0 64V94M94 0H64M-64 0H-94M66-66l-21 21M-45 45l-21 21M66 66l-21-21M-45-45l-21-21" /></g>
+            <g class="gear gear--c" transform="translate(445 420)"><circle r="92" /><circle class="gear__cut" r="57" /><path d="M0-110V-74M0 74V110M110 0H74M-74 0H-110M78-78l-26 26M-52 52l-26 26M78 78l-26-26M-52-52l-26-26" /></g>
+            <circle class="core" cx="300" cy="300" r="43" filter="url(#green-glow)" /><circle class="core__hole" cx="300" cy="300" r="13" />
+            <path class="signal-path" d="M300 40V0M300 600v-40M40 300H0M600 300h-40" />
+            <text x="300" y="298" text-anchor="middle" class="core-text">M/J</text>
+          </svg>
+          <span class="machine-graphic__readout">CORE / 001<br />SCROLL INPUT DETECTED</span>
+        </div>
+        <span class="hero__edge-note">Scroll to actuate ↓</span>
+      </section>
+
+      <section class="work scene" id="work" aria-labelledby="work-title">
+        <div class="work__intro"><p class="system-label">Selected work</p><h2 id="work-title">The machine<br />reveals its <em>work.</em></h2></div>
+        <div class="work__stage">
+          <div class="stage-ring stage-ring--one"></div><div class="stage-ring stage-ring--two"></div>
+          <div class="cards" aria-live="polite">
+            {projects.map((project, index) => (
+              <article class:list={['project-card', index === 0 && 'is-active']} data-card={index}>
+                <div class="project-card__top"><span>{project.id} / 04</span><span class="project-card__status">{project.status}</span></div>
+                <div class="project-card__art"><span class="art-cross"></span><span class="art-cross art-cross--two"></span><div class="mini-core"></div></div>
+                <div class="project-card__body"><h3>{project.title}</h3><p>{project.description}</p><div class="project-card__tags">{project.tags.map((tag) => <span>{tag}</span>)}</div></div>
+                <a class="project-card__action" href={project.link} target="_blank" rel="noreferrer">Open project <span aria-hidden="true">↗</span></a>
+              </article>
+            ))}
+          </div>
+          <div class="stage-progress"><span class="stage-progress__active">01</span><span class="stage-progress__rule"></span><span>04</span></div>
+        </div>
+        <p class="work__instruction"><span class="dot"></span> Keep scrolling to shift the assembly</p>
+      </section>
+
+      <section class="contact scene" id="contact" aria-labelledby="contact-title">
+        <div class="contact__machine" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="contact__copy"><p class="system-label">End of transmission</p><h2 id="contact-title">Have a system<br />worth <em>building?</em></h2><p>Open a channel for mobile products, full-stack systems, integrations, or process automation.</p><a class="contact__link" href="mailto:mbelgrano@gmail.com">mbelgrano@gmail.com <span aria-hidden="true">↗</span></a></div>
+        <footer><span>© 2026 Mariano JHB</span><span>Argentina / open to remote</span><a href="#top">Back to top ↑</a></footer>
+      </section>
+    </main>
+    <script>
+      const page = document.querySelector('.machine-page');
+      const cards = [...document.querySelectorAll('.project-card')];
+      const progressLabel = document.querySelector('.stage-progress__active');
+      let ticking = false;
+      const updateMachine = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = max ? window.scrollY / max : 0;
+        page.style.setProperty('--scroll', progress.toFixed(4));
+        const work = document.querySelector('.work');
+        const bounds = work.getBoundingClientRect();
+        const workProgress = Math.min(0.999, Math.max(0, (window.innerHeight * .65 - bounds.top) / (work.offsetHeight - window.innerHeight * .35)));
+        const active = Math.min(cards.length - 1, Math.max(0, Math.floor(workProgress * cards.length)));
+        cards.forEach((card, index) => card.classList.toggle('is-active', index === active));
+        if (progressLabel) progressLabel.textContent = String(active + 1).padStart(2, '0');
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateMachine); ticking = true; } }, { passive: true });
+      updateMachine();
+    </script>
+  </body>
+</html>
